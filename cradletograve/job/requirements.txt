@@ -1,0 +1,17 @@
+requests
+streamlit
+beautifulsoup4
+python-docx
+python-dotenv
+langchain
+langchain-chroma
+langchain-community
+langchain-openai
+langchain-core
+langchain-text-splitters
+pymongo
+reportlab
+pillow
+fpdf
+pypdf==4.2.0
+PyPDF2==3.0.1

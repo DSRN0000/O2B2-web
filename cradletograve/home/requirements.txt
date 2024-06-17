@@ -1,0 +1,12 @@
+requests
+streamlit
+beautifulsoup4
+python-docx
+python-dotenv
+langchain-openai
+langchain-core
+pymongo
+reportlab
+fpdf
+pypdf==4.2.0
+PyPDF2==3.0.1
