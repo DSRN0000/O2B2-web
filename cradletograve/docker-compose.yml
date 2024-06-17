@@ -1,0 +1,66 @@
+
+services:
+
+  home:
+    build:
+      context: ./home
+    ports:
+      - "8501:8501"
+    command: streamlit run home_before_login.py --server.port=8501 --server.address=0.0.0.0
+
+  kid:
+    build:
+      context: ./kid
+    ports:
+      - "8502:8502"
+    command: streamlit run kid_gamification.py --server.port=8502 --server.address=0.0.0.0
+
+  senior:
+    build:
+      context: ./senior
+    ports:
+      - "8503:8503"
+    command: streamlit run public_organization.py --server.port=8503 --server.address=0.0.0.0
+
+  researcher:
+    build:
+      context: ./researcher
+    ports:
+      - "8504:8504"
+    command: streamlit run researcher.py --server.port=8504 --server.address=0.0.0.0
+
+  company:
+    build:
+      context: ./company
+    ports:
+      - "8505:8505"
+    command: streamlit run digester_intern.py --server.port=8505 --server.address=0.0.0.0
+
+  soldier:
+    build:
+      context: ./soldier
+    ports:
+      - "8506:8506"
+    command: streamlit run welfare.py --server.port=8506 --server.address=0.0.0.0
+
+  job:
+    build:
+      context: ./job
+    ports:
+      - "8507:8507"
+    command: streamlit run job_selector.py --server.port=8507 --server.address=0.0.0.0
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - company
+      - home
+      - job
+      - kid
+      - researcher
+      - senior
+      - soldier
